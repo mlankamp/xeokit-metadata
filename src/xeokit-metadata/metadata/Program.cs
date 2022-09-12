@@ -87,10 +87,5 @@ static void WriteMetaObject(IIfcObjectDefinition objectDefinition, Utf8JsonWrite
     writer.WriteString("name", name);
     writer.WriteString("type", type);
     writer.WriteString("parent", parentId);
-    if (objectDefinition is IIfcBuildingStorey story && story.Elevation.HasValue)
-    {
-        var elevation = (double)story.Elevation.Value.Value;
-        writer.WriteString("elevation", elevation.ToString("#.###"));
-    }
     writer.WriteEndObject();
 }
